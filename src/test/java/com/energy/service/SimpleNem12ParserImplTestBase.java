@@ -20,6 +20,7 @@ public abstract class SimpleNem12ParserImplTestBase {
 
   /**
    * Get the file using file name
+   *
    * @param fileName filename
    * @return File
    */
@@ -31,6 +32,7 @@ public abstract class SimpleNem12ParserImplTestBase {
   /**
    * Method which returns collection of MeterRead Records
    * equivalent to that present in SimpleNem12.csv
+   *
    * @return collection of MeterRead records.
    */
   protected Collection<MeterRead> getMeterReadRecords() {
@@ -57,7 +59,8 @@ public abstract class SimpleNem12ParserImplTestBase {
 
   /**
    * Create MeterVolume
-   * @param volume volume
+   *
+   * @param volume  volume
    * @param quality quality
    * @return MeterVolume
    */
@@ -68,6 +71,7 @@ public abstract class SimpleNem12ParserImplTestBase {
 
   /**
    * Get the LocalDate from input date
+   *
    * @param date input date
    * @return LocalDate object.
    */

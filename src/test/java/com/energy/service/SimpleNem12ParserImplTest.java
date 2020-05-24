@@ -20,7 +20,7 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
   private LogCaptor<SimpleNem12ParserImpl> logCaptor;
 
   @Before
-  public void setUp()  {
+  public void setUp() {
     logCaptor = LogCaptor.forClass(SimpleNem12ParserImpl.class);
     simpleNem12Parser = new SimpleNem12ParserImpl();
   }
@@ -29,7 +29,7 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
    * Verify file exists.
    */
   @Test
-  public void testReadFile(){
+  public void testReadFile() {
     assertNotNull(simpleNem12Parser.parseSimpleNem12(getFile("SimpleNem12.csv")));
   }
 
@@ -37,17 +37,18 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
    * Verify the MeterReads records after being parsed.
    */
   @Test
-  public void testReadMeterRecords(){
-    Collection<MeterRead> meterReadCollection = simpleNem12Parser.parseSimpleNem12(new File("src/main/resources/SimpleNem12.csv"));
-     assertNotNull(meterReadCollection);
-     assertEquals(meterReadCollection, getMeterReadRecords());
+  public void testReadMeterRecords() {
+    Collection<MeterRead> meterReadCollection
+        = simpleNem12Parser.parseSimpleNem12(new File("src/main/resources/SimpleNem12.csv"));
+    assertNotNull(meterReadCollection);
+    assertEquals(meterReadCollection, getMeterReadRecords());
   }
 
   /**
    * Test for invalid first line in csv
    */
   @Test
-  public void testInvalidFirstLineInCsv(){
+  public void testInvalidFirstLineInCsv() {
     assertNotNull(simpleNem12Parser.parseSimpleNem12(getFile("SimpleNem12_InvalidFirstLine.csv")));
     assertTrue(logCaptor.getErrorLogs().toString().trim()
         .contains("RecordType 100 must be the first line in the file"));
@@ -57,7 +58,7 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
    * Test for invalid last line in csv
    */
   @Test
-  public void testInvalidLastLineInCsv(){
+  public void testInvalidLastLineInCsv() {
     assertNotNull(simpleNem12Parser.parseSimpleNem12(getFile("SimpleNem12_InvalidLastLine.csv")));
     assertTrue(logCaptor.getErrorLogs().toString().trim()
         .contains("RecordType 900 must be the last line in the file"));
@@ -77,7 +78,7 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
    * Test for invalid date
    */
   @Test
-  public void testInvalidDate(){
+  public void testInvalidDate() {
     assertNotNull(simpleNem12Parser.parseSimpleNem12(getFile("SimpleNem12_InvalidDate.csv")));
     assertTrue(logCaptor.getErrorLogs().toString().trim()
         .contains("Input date 2016111113 cannot be parsed"));
@@ -87,7 +88,7 @@ public class SimpleNem12ParserImplTest extends SimpleNem12ParserImplTestBase {
    * Test for invalid energy unit
    */
   @Test
-  public void testInvalidEnergyUnit(){
+  public void testInvalidEnergyUnit() {
     assertNotNull(simpleNem12Parser.parseSimpleNem12(getFile("SimpleNem12_InvalidEnergyUnit.csv")));
     assertTrue(logCaptor.getErrorLogs().toString().trim()
         .contains("EnergyUnit value should be KWH"));

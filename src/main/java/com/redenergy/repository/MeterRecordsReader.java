@@ -16,6 +16,7 @@ public class MeterRecordsReader implements FileReader {
 
   /**
    * Read the data from csv line by line.
+   *
    * @param simpleNem12File the input file.
    * @return list of String
    * @throws SimpleNem12ParserException

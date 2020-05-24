@@ -32,12 +32,13 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   private MeterRecordsReader meterRecordsReader;
 
-  public SimpleNem12ParserImpl(){
+  public SimpleNem12ParserImpl() {
     this.meterRecordsReader = new MeterRecordsReader();
   }
 
   /**
    * Parses Simple Nem12 CSV file and creates Collection of MeterRead records.
+   *
    * @param simpleNem12File file in Simple NEM12 format
    * @return the collection of MeterRead records.
    */
@@ -92,7 +93,8 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
    * @param meterRecords
    * @throws SimpleNem12ParserException
    */
-  private void validateInputCsvFileData(List<String> meterRecords) throws SimpleNem12ParserException {
+  private void validateInputCsvFileData(List<String> meterRecords)
+      throws SimpleNem12ParserException {
 
     //validate if the file is empty
     Nem12ValidationResult nem12ValidationResult = Nem12Validators.isFileEmpty().test(meterRecords);
@@ -110,7 +112,7 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
         .test(meterRecords.stream().reduce((first, second) -> second)
             .filter(elem -> elem.split(COMMA)[0].equals(RecordType.RECORD_TYPE_END.recordType)));
 
-     throwExceptionIfInvalid(nem12ValidationResult);
+    throwExceptionIfInvalid(nem12ValidationResult);
   }
 
 
@@ -140,7 +142,7 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
    * and create child MeterVolume and append to parent MeterRead record if the meter
    * record is at child level.
    *
-   * @param meterRecord a single line representing a single meter record
+   * @param meterRecord   a single line representing a single meter record
    * @param meterReadList list of meter reads
    * @throws SimpleNem12ParserException
    */
@@ -165,7 +167,8 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * Validates and create MeterRead Record using nmi and energyUnit.
-   * @param nmi the input nmi
+   *
+   * @param nmi        the input nmi
    * @param energyUnit the input energyUnit
    * @return
    * @throws SimpleNem12ParserException
@@ -193,10 +196,11 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * create and Append Meter Volume to the parent MeterRead record
+   *
    * @param meterRead parent meterRead record
-   * @param date the date
-   * @param volume the volume
-   * @param quality the quality
+   * @param date      the date
+   * @param volume    the volume
+   * @param quality   the quality
    * @throws SimpleNem12ParserException
    */
   private void createAndAppendVolume(MeterRead meterRead, String date,
@@ -207,6 +211,7 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * Parse the meter volume date to local date.
+   *
    * @param date the meter volume date
    * @return the LocalDate
    * @throws SimpleNem12ParserException
@@ -223,7 +228,8 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * Create Meter Volume using volume and quality.
-   * @param volume the volume
+   *
+   * @param volume  the volume
    * @param quality the quality
    * @return MeterVolume child record
    * @throws SimpleNem12ParserException
@@ -237,6 +243,7 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * Validate the quality with permissible values.
+   *
    * @param quality input quality
    * @throws SimpleNem12ParserException
    */
@@ -248,6 +255,7 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 
   /**
    * Throw SimpleNem12ParserException for invalid cases.
+   *
    * @param nem12ValidationResult the result of validation.
    * @throws SimpleNem12ParserException
    */

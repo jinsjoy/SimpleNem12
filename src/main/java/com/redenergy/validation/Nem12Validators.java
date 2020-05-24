@@ -20,6 +20,7 @@ public class Nem12Validators {
 
   /**
    * Validates if file exists
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<File> isFileExists() {
@@ -28,6 +29,7 @@ public class Nem12Validators {
 
   /**
    * Validates if file is empty
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<List<String>> isFileEmpty() {
@@ -37,6 +39,7 @@ public class Nem12Validators {
 
   /**
    * Validates if NMI is valid
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<String> isValidNmi(Integer nmiLength) {
@@ -46,6 +49,7 @@ public class Nem12Validators {
 
   /**
    * Validates the energy unit
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<String> isValidEnergyUnit() {
@@ -55,6 +59,7 @@ public class Nem12Validators {
 
   /**
    * Validates the quality
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<String> isValidQuality() {
@@ -65,6 +70,7 @@ public class Nem12Validators {
 
   /**
    * Validates the Start line is of RECORD_TYPE_START("100)
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<Optional<String>> isValidStartLine(
@@ -75,6 +81,7 @@ public class Nem12Validators {
 
   /**
    * Validates the end line is of RECORD_TYPE_END("200)
+   *
    * @return Core Validation Object with predicate and error message.
    */
   public static Validation<Optional<String>> isValidEndLine(
