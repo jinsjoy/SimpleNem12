@@ -14,7 +14,8 @@ import static java.lang.String.format;
 
 /**
  * The list of validators with SimpleNem12Parsing.
- * This gives flexibility for a single place to evaluate and produce error message.
+ * This gives flexibility to configure validators from a single place
+ * to evaluate and produce error message.
  */
 public class Nem12Validators {
 
